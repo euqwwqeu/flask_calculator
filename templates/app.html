@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Калькулятор</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='css/app.css') }}"
+    />
+    
+  </head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <body>
+    <div class="header">
+      <h1>{{ name }}</h1>
+      <h2>Калькулятор</h2>
+    </div>
+
+    <!-- Form -->
+    <div class="container">
+      <form action="/calculate" method="POST">
+        <div class="form-group">
+          <label for="Number One">Первое число</label>
+          <input type="text" placeholder="Введите значение" name="num1" />
+        </div>
+
+        <div class="form-group">
+          <label for="Number Two">Второе число</label>
+          <input type="text" placeholder="Введите значение" name="num2" />
+        </div>
+
+        <div class="form-group">
+          <label for="Operation">Выберите действие</label>
+          <select name="operation">
+            <option value="add">Сложение</option>
+            <option value="subtract">Вычитание</option>
+            <option value="multiply">Умножение</option>
+            <option value="divide">Деление</option>
+          </select>
+        </div>
+
+        <input type="submit" value="Вычислить" id="calc_btn" class="btn">
+        <br />
+        <div class="alert">
+            {{ result }}
+        </div>        
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
